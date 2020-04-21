@@ -7,4 +7,4 @@ const userSchema = new Schema({//create an instance of the schema that describes
     googleID: String
 });
 
-mongoose.model('users', userSchema);//create a new collection called 'users'.
+mongoose.model('ourusers', userSchema);//create a new collection called 'users'. = created a model class called 'users'.

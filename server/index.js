@@ -1,8 +1,11 @@
 const express = require('express');//import express
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
-require('./services/passportConfig');//import passportConfig.js
 const keys = require('./config/keys');
+require('./models/User');
+
+require('./services/passportConfig');//import passportConfig.js
+
 
 const app = express();
 
