@@ -17,8 +17,9 @@ module.exports = (app) => {
         response.send(request.user);//to test: this will send empty response because already logged out
     })
 
-    app.get('/api/loggedInUser', (request, response) => { //second parameter function will be automatically called whenever a user makes a GET request to this route.
+    app.get('/api/currentUser', (request, response) => { //second parameter function will be automatically called whenever a user makes a GET request to this route.
         response.send(request.user);
+        //response.send(request.session);
     });
 };
 
