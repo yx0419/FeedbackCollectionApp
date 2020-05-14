@@ -1,4 +1,6 @@
 //This will render the root component to the DOM.
+
+import matCSS from 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
