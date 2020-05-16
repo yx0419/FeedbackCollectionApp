@@ -18,7 +18,7 @@ module.exports = (app) => {
     })
 
     app.get('/api/currentUser', (request, response) => { //second parameter function will be automatically called whenever a user makes a GET request to this route.
-        response.send(request.user);
+        response.send(request.user); //if this is undefined, it means user is not signe in. 
         //response.send(request.session);
     });
 };
