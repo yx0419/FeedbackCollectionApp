@@ -1,12 +1,18 @@
 //here create a reducer and export it.
 
-export default function (state, action) {
+import { FETCH_USER } from '../actions/actionTypes';
 
-    if (state === undefined) {
-        return {};
-    }
+export default function (state = null, action) {
+
+    //console.log(action);
+
+    // if (state === undefined) {
+    //     return null;
+    // }
 
     switch (action.type) {
+        case FETCH_USER:
+            return action.payload || false;//if it is empty string '' or false, return false, not ''. 
         default:
             return state; //nothing changed.
     }

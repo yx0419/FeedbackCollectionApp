@@ -1,14 +1,6 @@
 {
   "name": "clientapp",
   "version": "0.1.0",
-  "proxy": {
-    "/auth/google": {
-      "target": "http://localhost:5000"
-    },
-    "/api/*": {
-      "target": "http://localhost:5000"
-    }
-  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -16,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "http-proxy-middleware": "^1.0.3",
+    "http-proxy-middleware": "^1.0.4",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
