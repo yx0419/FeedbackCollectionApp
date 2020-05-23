@@ -16,12 +16,12 @@ class Header extends Component {
             case null: //when it is still wating for the response, (pending),
                 return; //then display nothing to the screen.
 
-            case false:
+            case false: //it means the user is logged out.
                 return (
                     <li><a href="auth/google">Sign in with Google</a></li>
                 )
 
-            default: //when case is true
+            default: //when case is true: it means the user is logged in.
                 // return 'user is logged in';
                 return <li><a>Sign out</a></li>
         }
