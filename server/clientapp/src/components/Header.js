@@ -13,14 +13,17 @@ class Header extends Component {
 
     whatToRender() {
         switch (this.props.auth) {
-            case null:
-                return 'Pending/Waiting to know the result... ';
+            case null: //when it is still wating for the response, (pending),
+                return; //then display nothing to the screen.
 
             case false:
-                return 'user is logged out';
+                return (
+                    <li><a href="auth/google">Sign in with Google</a></li>
+                )
 
             default: //when case is true
-                return 'user is logged in';
+                // return 'user is logged in';
+                return <li><a>Sign out</a></li>
         }
     }
 
