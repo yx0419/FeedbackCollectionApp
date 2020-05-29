@@ -3,9 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom'//BrowserRouter, Route ar
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
+import Homepage from './Homepage';
+
 const Dashboard = () => <h2>Dashboard</h2>//dummy component called 'Dashboard'.
 const CreateSurvey = () => <h2>createSurvey</h2>
-const Homepage = () => <h2>homepage</h2>
+//const Homepage = () => <h2>homepage</h2>
 
 //whenever user goes to root route, show Homepage component.
 class App extends Component { // create class-based App component 

@@ -1,6 +1,7 @@
 //create a class-based component
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom' //libary that works for react router inside browser
 // import Button from 'react-bootstrap/Button';
 // import Navbar from 'react-bootstrap/Navbar';
 // import Nav from 'react-bootstrap/Nav';
@@ -12,18 +13,18 @@ import { connect } from 'react-redux';
 class Header extends Component {
 
     whatToRender() {
-        switch (this.props.auth) {
-            case null: //when it is still wating for the response, (pending),
+        switch (this.props.auth) { //this.props.auth tells me if user is logged in or not.
+            case null: //when it is still waiting for the response, (pending),
                 return; //then display nothing to the screen.
 
             case false: //it means the user is logged out.
                 return (
-                    <li><a href="auth/google">Sign in with Google</a></li>
+                    <li><a href="/auth/google">Sign in with Google</a></li>
                 )
 
             default: //when case is true: it means the user is logged in.
                 // return 'user is logged in';
-                return <li><a>Sign out</a></li>
+                return <li><a href="/api/logout">Sign out</a></li>
         }
     }
 
@@ -32,7 +33,7 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper teal lighten-2">
-                    <a href="#" className="brand-logo blue-text text-darken-4">ClearFeedback</a>
+                    <Link to={} href="#" className="brand-logo blue-text text-darken-4">ClearFeedback</Link>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><a href="sass.html" className="blue-text text-darken-4">Component</a></li>
                         <li><a href="badges.html" className="blue-text text-darken-4">Component</a></li>
@@ -41,7 +42,7 @@ class Header extends Component {
                 </div>
             </nav>
         );
-    }
+    }//we don't use <a>. for logo. Instead, we use Link tag from react-router-dom
 }
 
 function mapStateToProps({ auth }) {
