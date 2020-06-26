@@ -33,7 +33,7 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper teal lighten-2">
-                    <Link to={} href="#" className="brand-logo blue-text text-darken-4">ClearFeedback</Link>
+                    <Link to={this.props.auth ? '/surveys' : '/'} className="brand-logo blue-text text-darken-4">ClearFeedback</Link>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><a href="sass.html" className="blue-text text-darken-4">Component</a></li>
                         <li><a href="badges.html" className="blue-text text-darken-4">Component</a></li>
@@ -43,6 +43,7 @@ class Header extends Component {
             </nav>
         );
     }//we don't use <a>. for logo. Instead, we use Link tag from react-router-dom
+    //this.props.auth ? '/surveys' : '/' this means if 'this.props.auth' is truthy, then it is '/surveys'. If 'this.props.auth' is falsey, then it is '/'.
 }
 
 function mapStateToProps({ auth }) {
