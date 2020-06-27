@@ -1,7 +1,9 @@
+//Header.js is where displays other components on the screen.
 //create a class-based component
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom' //libary that works for react router inside browser
+import StripePayment from './StripePayment';
 // import Button from 'react-bootstrap/Button';
 // import Navbar from 'react-bootstrap/Navbar';
 // import Nav from 'react-bootstrap/Nav';
@@ -24,7 +26,10 @@ class Header extends Component {
 
             default: //when case is true: it means the user is logged in.
                 // return 'user is logged in';
-                return <li><a href="/api/logout">Sign out</a></li>
+                return [
+                    <li><StripePayment /></li>,
+                    <li><a href="/api/logout">Sign out</a></li>
+                ];
         }
     }
 

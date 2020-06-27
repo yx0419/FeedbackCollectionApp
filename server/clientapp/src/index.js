@@ -17,4 +17,7 @@ ReactDOM.render(
     <Provider store={store}><App /></Provider>,
     document.querySelector('#root'));//first parameter= our root component, second parametr=where we are attempting to render that component to = a reference to an existing Dom node inside of our html document.
 
+console.log('Stipe key is ', process.env.REACT_APP_STRIPE_KEY)
+console.log('Environment is ', process.env.NODE_ENV)
+
 //<App /> is component instance created by JSX tag
