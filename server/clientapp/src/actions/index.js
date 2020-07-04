@@ -1,12 +1,20 @@
 import axios from 'axios'; //use axios library to make Ajax request
 import { FETCH_USER } from './actionTypes';
 
-export const fetchSinginInfo = () => {// define action creator
+export const fetchSinginInfo = () => {// define asynchronous action creator
     return function (dispatch) {
         axios.get('/api/currentUser') //GET request to our backend, parameter is a route to API
             .then(response => dispatch({ type: FETCH_USER, payload: response.data }));//After the request has been resolved and get a response back, dispatch the action containing that response.
     };
 };
+
+export const sendTokenToBackEnd = (token) => async dispatch => { //create a new asynchronous actoin creator
+    const response = await axios.post('/api/stripe', token); //make a POST request to our back-end server. first parameter is route handler. second parameter is the token we got from Stripe.
+
+    dispatch({ type: FETCH_USER, payload: response.data });
+};
+
+
 
 /* we want to dispacth an action only after this API request has been successfully completed.
 So, axios.get('/api/currentUser') should be an asynchronous code.

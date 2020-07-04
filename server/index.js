@@ -4,12 +4,15 @@ const cookieSession = require('cookie-session');
 const passport = require('passport')
 const authRoutes = require('./routes/authRoutes');
 const keys = require('./config/keys');
+const bodyParser = require('body-parser');
 require('./models/User');
 require('./services/passportConfig');//import passportConfig.js
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
+
+app.use(bodyParser.json());//this middleware will parse the body of the request, and assign it to the req.body property
 
 //tell express to enable cookie
 app.use(
@@ -24,10 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 authRoutes(app);
-
-app.get('/', (request, response) => {
-    response.send({ framework: 'express' });
-});
+require('./routes/billingRoutes')(app);
 
 //Heroku OR development environment
 const PORT = process.env.PORT || 5000;

@@ -27,8 +27,11 @@ class Header extends Component {
             default: //when case is true: it means the user is logged in.
                 // return 'user is logged in';
                 return [
-                    <li><StripePayment /></li>,
-                    <li><a href="/api/logout">Sign out</a></li>
+                    <li key="1"><StripePayment /></li>,
+                    <li key="3"
+                        style={{ margin: '0 13px' }}> Credits: {this.props.auth.credits}
+                    </li>,
+                    <li key="2"><a href="/api/logout">Sign out</a></li>
                 ];
         }
     }
