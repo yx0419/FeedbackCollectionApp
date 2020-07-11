@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+#remember to delete this .env.production here when deploying to heroku
 .env.development
 .env.production

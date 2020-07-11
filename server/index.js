@@ -29,6 +29,16 @@ app.use(passport.session());
 authRoutes(app);
 require('./routes/billingRoutes')(app);
 
+if (process.env.NODE_ENV === 'production') {
+
+    app.use(express.static('clientapp/build')); //Express will serve main.js or main.css file 
+
+    const path = require('path'); //Express will serve index.html file 
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'clientapp', 'build', 'index.html'));
+    });
+}
+
 //Heroku OR development environment
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
