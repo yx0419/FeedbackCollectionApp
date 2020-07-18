@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 require('./models/User');
+require('./models/Survey');
 require('./services/passportConfig');//import passportConfig.js
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -28,6 +29,8 @@ app.use(passport.session());
 
 authRoutes(app);
 require('./routes/billingRoutes')(app);
+
+require('./routes/surveyRoutes')(app); //requires the route function and then call that route function with 'app' object.
 
 if (process.env.NODE_ENV === 'production') {
 

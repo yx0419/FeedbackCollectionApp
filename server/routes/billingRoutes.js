@@ -18,6 +18,5 @@ module.exports = app => { //create a route handler that will listen for POST req
         const user = await req.user.save();
 
         res.send(user);
-
     });
 };

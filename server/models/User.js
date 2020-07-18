@@ -3,7 +3,7 @@
 const mongoose = require('mongoose'); //require mongoose library
 const Schema = mongoose.Schema; //mongoose object has one property called 'Schema'. const Schema means an object
 
-const userSchema = new Schema({//create a schema that describes what properties a ouruser will have.
+const userSchema = new Schema({//create a schema that defines all the properties that our model class will have.
     googleID: String,
     credits: { type: Number, default: 0 }
 });
