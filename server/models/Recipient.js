@@ -9,6 +9,4 @@ const recipientSchema = new Schema({//create a schema that defines all the prope
     isSubmitted: { type: Boolean, default: false } //when the user clicks and respond to the survey, this will become true.
 });
 
-mongoose.model('surveys', surveySchema);//create a new collection(=a model class) called 'surveys' with that schema. = load the 4 info into our mongoose library.
-
 module.exports = recipientSchema; //Insead of registering the schma with mongoose, export the schema so that we can import this schema into our Survey.

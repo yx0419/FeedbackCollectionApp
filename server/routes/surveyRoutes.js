@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const requireSignin = require('../middlewares/requireSignIn');
 const requireCredits = require('../middlewares/requireCredits');
+const Mailer = require('../services/Mailer');
+const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys'); //get the model class called 'surveys'.
 
@@ -16,6 +18,9 @@ module.exports = app => { //create a route handler that will craete a new survey
             recipients: recipients.split(',').map(email => { return { email: email.trim() } }),//array of objects
             whichUser: request.user.id, //this 'id' is what mangoose give to every model
         });
+
+        //send an email
+        const mailer = new Mailer(survey, surveyTemplate(survey)); //first parameter = the entire survey object
     });
 };
 

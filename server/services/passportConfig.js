@@ -1,3 +1,4 @@
+//this file is about configuration and setup of passport.
 const passport = require('passport');
 const googleStrategy = require('passport-google-oauth20').Strategy; //import strategy
 const mongoose = require('mongoose');
