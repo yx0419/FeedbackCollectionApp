@@ -4,10 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Homepage from './Homepage';
-
-const Dashboard = () => <h2>Dashboard</h2>//dummy component called 'Dashboard'.
-const CreateSurvey = () => <h2>createSurvey</h2>
-//const Homepage = () => <h2>homepage</h2>
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
 //whenever user goes to root route, show Homepage component.
 class App extends Component { // create class-based App component 
@@ -23,7 +21,7 @@ class App extends Component { // create class-based App component
                         <Header />
                         <Route exact={true} path="/" component={Homepage} />
                         <Route exact={true} path="/surveys" component={Dashboard} />
-                        <Route path="/surveys/new" component={CreateSurvey} />
+                        <Route path="/surveys/new" component={SurveyNew} />
                     </div>
                 </BrowserRouter>
             </div>

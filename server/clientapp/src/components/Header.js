@@ -21,7 +21,7 @@ class Header extends Component {
 
             case false: //it means the user is logged out.
                 return (
-                    <li><a href="/auth/google">Sign in with Google</a></li>
+                    <a class="waves-effect waves-light btn"><li><a href="/auth/google">Sign in with Google</a></li></a>
                 )
 
             default: //when case is true: it means the user is logged in.
@@ -31,7 +31,7 @@ class Header extends Component {
                     <li key="3"
                         style={{ margin: '0 13px' }}> Credits: {this.props.auth.credits}
                     </li>,
-                    <li key="2"><a href="/api/logout">Sign out</a></li>
+                    <a class="waves-effect waves-light btn"><li key="2"><a href="/api/logout">Sign out</a></li></a>
                 ];
         }
     }
@@ -40,13 +40,17 @@ class Header extends Component {
         console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper teal lighten-2">
-                    <Link to={this.props.auth ? '/surveys' : '/'} className="brand-logo blue-text text-darken-4">ClearFeedback</Link>
+                <div className="nav-wrapper teal">
+                    <a onClick="window.location.reload();" class="waves-effect waves-light btn"><Link to={this.props.auth ? '/surveys' : '/'}>Survey History</Link></a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a href="sass.html" className="blue-text text-darken-4">Component</a></li>
-                        <li><a href="badges.html" className="blue-text text-darken-4">Component</a></li>
                         <li><a href="collapsible.html"></a>{this.whatToRender()}</li>
                     </ul>
+                    <div className="fixed-action-btn">
+                        <h5>Create Survey</h5>
+                        <Link to="/surveys/new" className="btn-floating btn-large green">
+                            <i className="material-icons">create</i>
+                        </Link>
+                    </div>
                 </div>
             </nav>
         );

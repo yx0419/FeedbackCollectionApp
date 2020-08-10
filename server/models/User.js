@@ -8,4 +8,4 @@ const userSchema = new Schema({//create a schema that defines all the properties
     credits: { type: Number, default: 0 }
 });
 
-mongoose.model('ourusers', userSchema);//create a new collection(=a model class) called 'ourusers' with that schema.
+mongoose.model('users', userSchema);//create a new collection(=a model class) called 'users' with that schema.

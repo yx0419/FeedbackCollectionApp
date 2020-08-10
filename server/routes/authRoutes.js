@@ -12,7 +12,7 @@ module.exports = (app) => {
     //add a route handler. After user allows/chose google account right after clicking 'sign in with Google', user will be redirected to this route including 'code' in url. Then, passport will exchange code received from Google server, with Google server.)
     app.get('/auth/google/callback', passport.authenticate('google'),
         (req, res) => {
-            res.redirect('/surveys'); //when user comes to /auth/google/callback, passport.authentication will do its job and then user will be redirected to '/surveys' this another route. 'localhost:3000/surveys'
+            res.redirect('/'); //when user comes to /auth/google/callback, passport.authentication will do its job and then user will be redirected to '/surveys' this another route. 'localhost:3000/surveys'
         }
     );
 

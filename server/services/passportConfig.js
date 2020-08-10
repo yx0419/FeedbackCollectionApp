@@ -4,7 +4,7 @@ const googleStrategy = require('passport-google-oauth20').Strategy; //import str
 const mongoose = require('mongoose');
 const keys = require('../config/keys') //import keys.js file
 
-const User = mongoose.model('ourusers'); //to get access to that 'ouruser' model class. 'Users' is that model class.
+const User = mongoose.model('users'); //to get access to that 'user' model class. 'Users' is that model class.
 
 passport.serializeUser((user, done) => {//'user' is same as 'user' below in else statement. user = user record. 'done' is callback.
     done(null, user.id)//user.id is token to save in browser cookie. Serialization turned 'user' into 'user.id'.

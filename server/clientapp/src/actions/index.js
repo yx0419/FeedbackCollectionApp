@@ -1,5 +1,5 @@
 import axios from 'axios'; //use axios library to make Ajax request
-import { FETCH_USER } from './actionTypes';
+import { FETCH_USER, FETCH_SURVEYS } from './actionTypes';
 
 export const fetchSinginInfo = () => {// define asynchronous action creator
     return function (dispatch) {
@@ -14,6 +14,18 @@ export const sendTokenToBackEnd = (token) => async dispatch => { //create a new 
     dispatch({ type: FETCH_USER, payload: response.data });
 };
 
+export const submitSurvey = (values, history) => async dispatch => {
+    const res = await axios.post('/api/surveys', values);
+
+    history.push('/surveys');
+    dispatch({ type: FETCH_USER, payload: res.data });
+};
+
+export const fetchSurveys = () => async dispatch => {
+    const res = await axios.get('/api/surveys');
+
+    dispatch({ type: FETCH_SURVEYS, payload: res.data });
+};
 
 
 /* we want to dispacth an action only after this API request has been successfully completed.
